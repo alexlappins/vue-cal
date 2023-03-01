@@ -53,9 +53,7 @@ export default {
       if (!['month', 'week'].includes(this.view.id)) return []
 
       let todayFound = false
-      const headings = this.weekDays.map((cell, i) => {
-        const date = this.utils.date.addDays(this.view.startDate, this.vuecal.startWeekOnSunday ? i - 1 : i)
-
+      const date = this.utils.date.addDays(this.view.startDate, this.vuecal.startWeekOnSunday && this.vuecal.hideWeekends ? i -1 : i )
         return {
           hide: cell.hide,
           full: cell.label,
